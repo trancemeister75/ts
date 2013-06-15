@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title>Inventario</title>
+	<h:outputStylesheet name="css/jquery-ui.css"></h:outputStylesheet>
+</h:head> 
+<body> 
+	<p:layout fullPage="true">
+	<p:layoutUnit position="north" size="63" >
+		<p:toolbar  style="height:36px">
+			<p:toolbarGroup align="right">
+				<p:commandLink value="Cerrar Sesion" style="float:right;" actionListener="#{loginBean.logout}"></p:commandLink>
+				<p:spacer width="20"></p:spacer>
+			</p:toolbarGroup>
+			<p:toolbarGroup align="right">
+				<p:outputLabel value="Usuario: #{loginBean.username}  " style="float:left;"></p:outputLabel>
+			</p:toolbarGroup>
+		</p:toolbar>
+	</p:layoutUnit>
+	<p:layoutUnit position="west" size="150" header="Menu" resizable="false" closable="false" collapsible="true" effect="slide" collapsed="false">   
+    <p:commandButton id="alta" value="Alta de Libro" onclick="dlgAlta.show()"/>
+    <p:commandButton id="consulta" value="Consulta de Libros" onclick="dlgConsulta.show()"/>
+    <p:commandButton id="altaInv" value="Alta de Inventario" onclick="dlgAltaInv.show()" />
+    <p:commandButton id="renta" value="Renta de Libro" onclick="dlgRenta.show()"/>
+    <p:commandButton id="consultaInv" value="Consulta de Inventario" onclick="dlgConsultaInv.show()"/>
+    <p:commandButton id="consultaRen" value="Consulta de Rentas" onclick="dlgConsultaRen.show()"/>
+    </p:layoutUnit>
+     <p:layoutUnit position="center">  
+        <h:form> 
+         <p:growl id="growl" showDetail="true" life="1000" />  
+            <p:dialog id="dialAlta"  widgetVar="dlgAlta" dynamic="true" closable="true"  resizable="false" draggable="true" footer="" header="Alta de Libro" showEffect="puff" height="auto" width="auto" position="170,75" minimizable="true" maximizable="true">
+            	<h:panelGrid columns="4" cellpadding="5">
+            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
+            		<p:inputText value="#{registroBean.idLibro}" binding="#{registroBean.itIdLibro}"></p:inputText>
+            		<p:outputLabel value="SKU: "></p:outputLabel>
+            		<p:inputText value="#{registroBean.SKU}" binding="#{registroBean.itSKU}"></p:inputText>
+            		<p:outputLabel value="Titulo: "></p:outputLabel>
+            		<p:inputText value="#{registroBean.titulo}" binding="#{registroBean.itTitulo}"></p:inputText>
+            		<p:outputLabel value="Autor"></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Editorial: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Edicion: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Idioma: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Año: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            	</h:panelGrid>
+            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
+            </p:dialog>
+            <p:dialog widgetVar="dlgConsulta" id="dialConsulta" dynamic="true"  closable="true" draggable="true" footer="" header="Consulta de Libros" height="auto" width="auto" minWidth="480" position="170,390" showEffect="explode" minimizable="true" maximizable="true">
+            	<h:panelGrid columns="4" cellpadding="5">
+            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="SKU: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            	</h:panelGrid>
+            	<p:commandButton value="Consultar" style="float:right;"></p:commandButton>
+            	<p:outputLabel value="Resultados: "></p:outputLabel>
+            	<p:dataTable></p:dataTable>
+            </p:dialog>
+            <p:dialog id="dialAltaInv"  widgetVar="dlgAltaInv" dynamic="true" closable="true"  resizable="false" draggable="true" footer="" header="Alta de Inventario" showEffect="puff" height="auto" width="auto" position="170,75" minimizable="true" maximizable="true">
+            	<h:panelGrid columns="4" cellpadding="5">
+            		<p:outputLabel value="SKU: " for="sku"></p:outputLabel>
+            		<p:inputText value="#{registroInventarioBean.sku}" binding="#{registroInventarioBean.itSKU}" id="sku" label="sku"></p:inputText>
+            		<p:outputLabel value="Fecha de Registro: " for="fechaIngreso"></p:outputLabel>
+            		<p:inputText value="#{registroInventarioBean.fechaIngreso}" binding="#{registroInventarioBean.itFechaIngreso}" id="fechaIngreso" label="fechaIngreso"></p:inputText>
+            		<p:outputLabel value="Cantidad: " for="cantidad"></p:outputLabel>
+            		<p:inputText value="#{registroInventarioBean.cantidadLibres}" binding="#{registroInventarioBean.itCantidadLibres}" id="cantidad" label="cantidad"></p:inputText>
+            		<p:outputLabel value="Usuario: " for="usuario"></p:outputLabel>
+            		<p:inputText value="#{loginBean.username}" binding="#{registroInventarioBean.itIdUsuario}" id="usuario" label="usuario" disabled="true"></p:inputText>
+            	</h:panelGrid>
+            	<p:commandButton value="Registrar" style="float:right;" actionListener="#{registroInventarioBean.registraInventario}"  update="sku fechaIngreso cantidad growl"></p:commandButton>
+            </p:dialog>
+            <p:dialog widgetVar="dlgConsultaInv" id="dialConsultaInv" dynamic="true"  closable="true" draggable="true" footer="" header="Consulta de Inventario" height="auto" width="auto" minWidth="480" position="170,390" showEffect="explode" minimizable="true" maximizable="true">
+            	<h:panelGrid columns="4" cellpadding="5">
+            		<p:outputLabel value="SKU: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:spacer width="272" height="10"></p:spacer>
+            		<p:commandButton value="Consultar" style="float:right;"></p:commandButton>
+            	</h:panelGrid>
+            	<p:outputLabel value="Resultados: "></p:outputLabel>
+            	<p:dataTable></p:dataTable>
+            </p:dialog>
+            <p:dialog widgetVar="dlgConsultaRen" id="dialConsultaRen" dynamic="true"  closable="true" draggable="true" footer="" header="Consulta de Rentas" height="auto" width="auto" minWidth="480" position="170,390" showEffect="explode" minimizable="true" maximizable="true">
+            	<h:panelGrid columns="4" cellpadding="5">
+            		<p:outputLabel value="Identificador de Libro: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:spacer width="272" height="10"></p:spacer>
+            		<p:commandButton value="Consultar" style="float:right;"></p:commandButton>
+            	</h:panelGrid>
+            	<p:outputLabel value="Resultados: "></p:outputLabel>
+            	<p:dataTable></p:dataTable>
+            </p:dialog>
+            <p:dialog id="dialRenta"  widgetVar="dlgRenta" dynamic="true" closable="true"  resizable="false" draggable="true" footer="" header="Renta de Libro" showEffect="puff" height="auto" width="auto" position="170,75" minimizable="true" maximizable="true">
+            	<h:panelGrid columns="4" cellpadding="5">
+            		<p:outputLabel value="Identificador de Libro: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Fecha de Renta: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Fecha de Entrega: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Usuario: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            	</h:panelGrid>
+            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
+            </p:dialog>
+        </h:form>  
+    </p:layoutUnit>  
+    </p:layout>
+<script type="text/javascript">
+
+</script>    
+</body> 
+</html>
