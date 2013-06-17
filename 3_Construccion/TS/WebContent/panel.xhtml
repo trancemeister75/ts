@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title>Panel Principal</title>
+	<h:outputStylesheet name="css/jquery-ui.css"></h:outputStylesheet>
+</h:head> 
+<h:body> 
+	<p:layout fullPage="true">
+	<p:layoutUnit position="north" size="63" >
+		<p:toolbar  style="height:36px">
+			<p:toolbarGroup align="right">
+				<p:commandLink value="Cerrar Sesion" style="float:right;" actionListener="#{loginBean.logout}"></p:commandLink>
+				<p:spacer width="20"></p:spacer>
+			</p:toolbarGroup>
+			<p:toolbarGroup align="right">
+				<p:outputLabel value="Usuario: #{loginBean.username}  " style="float:left;"></p:outputLabel>
+			</p:toolbarGroup>
+		</p:toolbar>
+	</p:layoutUnit>
+	<p:layoutUnit position="west" size="150" header="Menu" resizable="false" closable="false" collapsible="true" effect="slide" collapsed="false">   
+    <p:commandButton id="boton1" value="Boton 1" />
+    <p:commandButton id="boton2" value="Boton 1"/>
+
+    </p:layoutUnit>
+     <p:layoutUnit position="center">  
+        <h:form> 
+         <p:growl id="growl" showDetail="true" life="1000" />  
+            <p:dialog id="dial1"  widgetVar="dlg1" dynamic="true" closable="true"  resizable="false" draggable="true" footer="" header="Dialogo de Ejemplo" showEffect="puff" height="auto" width="auto" position="170,75" minimizable="true" maximizable="true">
+            	<h:panelGrid columns="4" cellpadding="5">
+            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="SKU: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Titulo: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Autor"></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Editorial: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Edicion: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Idioma: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            		<p:outputLabel value="Año: "></p:outputLabel>
+            		<p:inputText></p:inputText>
+            	</h:panelGrid>
+            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
+            </p:dialog>
+      </h:form>  
+    </p:layoutUnit>  
+    </p:layout>
+<script type="text/javascript">
+
+//Aqui va la logica Javascript
+
+</script>    
+</h:body> 
+</html>

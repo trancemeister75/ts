@@ -17,8 +17,8 @@ import org.primefaces.context.RequestContext;
 
 import javax.servlet.http.HttpSession;
 
-import com.main.resources.HibernateUtil;
-import com.main.target.Usuario;
+//import com.main.resources.HibernateUtil;
+//import com.main.target.Usuario;
 
 @ManagedBean
 @SessionScoped
@@ -81,7 +81,7 @@ public class LoginBean implements Serializable{
 		RequestContext context = RequestContext.getCurrentInstance();
 		
 		if(username != null && password != null) {
-			Query query = HibernateUtil.getSessionFactory().openSession().createQuery("from Usuario where idUsuario = :user and password = :pass");
+			/*Query query = HibernateUtil.getSessionFactory().openSession().createQuery("from Usuario where idUsuario = :user and password = :pass");
 			query.setParameter("user", this.username);
 			query.setParameter("pass", this.password);
 			List<Usuario> usuarios = query.list();
@@ -92,7 +92,8 @@ public class LoginBean implements Serializable{
 			else
 			{
 				loggedIn = true;
-			}
+			}*/
+			loggedIn = true;
 		}
 		context.addCallbackParam("loggedIn", loggedIn);
 
