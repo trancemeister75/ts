@@ -7,30 +7,106 @@
 
 <h:head>
 	<title>Panel Principal</title>
-	<h:outputStylesheet name="css/jquery-ui.css"></h:outputStylesheet>
+	<!--  <h:outputStylesheet name="css/jquery-ui.css"></h:outputStylesheet> -->
+	<style type="text/css">
+                .ui-layout-north {
+                    z-index:20 !important;
+                    overflow:visible !important;;
+                }
+
+                .ui-layout-north .ui-layout-unit-content {
+                    overflow:visible !important;
+                }
+            </style>
 </h:head> 
 <h:body> 
 	<p:layout fullPage="true">
-	<p:layoutUnit position="north" size="63" >
-		<p:toolbar  style="height:36px">
+	<p:layoutUnit position="north" size="69" scrollable="null" >
+		<h:form>
+		<p:growl id="messages"/> 
+		<h:panelGrid columns="3" width="100%">
+		<p:graphicImage library="images" name="Logo-Escuela.JPG" width="100px" height="45px" ></p:graphicImage>
+		<p:menubar style="float:left">  
+        <p:submenu label="Servicios" icon="ui-icon-document">  
+            <p:submenu label="New" icon="ui-icon-contact">  
+                <p:menuitem value="Project" url="#" />  
+                <p:menuitem value="Other" url="#" />  
+            </p:submenu>  
+            <p:menuitem value="Open" url="#" />  
+            <p:separator />  
+            <p:menuitem value="Quit" url="#" />  
+        </p:submenu>  
+        
+        <p:submenu label="Ventas" icon="ui-icon-document">  
+            <p:submenu label="New" icon="ui-icon-contact">  
+                <p:menuitem value="Project" url="#" />  
+                <p:menuitem value="Other" url="#" />  
+            </p:submenu>  
+            <p:menuitem value="Open" url="#" />  
+            <p:separator />  
+            <p:menuitem value="Quit" url="#" />  
+        </p:submenu>  
+  
+        <p:submenu label="Inventario" icon="ui-icon-pencil">  
+            <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />  
+            <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />  
+        </p:submenu> 
+         
+  
+        <p:submenu label="Notas" icon="ui-icon-document">  
+            <p:menuitem value="Contents" url="#" />  
+            <p:submenu label="Search" icon="ui-icon-search">  
+                <p:submenu label="Text">  
+                    <p:menuitem value="Workspace" url="#" />  
+                </p:submenu>  
+                <p:menuitem value="File" url="#" />  
+            </p:submenu>  
+        </p:submenu>  
+  
+        <p:submenu label="Clientes" icon="ui-icon-gear">  
+            <p:submenu label="Ajax" icon="ui-icon-refresh">  
+                <p:menuitem value="Save" actionListener="#{menuBean.save}" icon="ui-icon-disk" update="messages"/>  
+                <p:menuitem value="Update" actionListener="#{menuBean.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>  
+            </p:submenu>  
+            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">  
+                <p:menuitem value="Delete" actionListener="#{menuBean.delete}" icon="ui-icon-close" update="messages" ajax="false"/>  
+            </p:submenu>  
+        </p:submenu>  
+        <p:submenu label="Personal" icon="ui-icon-gear">  
+            <p:submenu label="Ajax" icon="ui-icon-refresh">  
+                <p:menuitem value="Save" actionListener="#{menuBean.save}" icon="ui-icon-disk" update="messages"/>  
+                <p:menuitem value="Update" actionListener="#{menuBean.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>  
+            </p:submenu>  
+            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">  
+                <p:menuitem value="Delete" actionListener="#{menuBean.delete}" icon="ui-icon-close" update="messages" ajax="false"/>  
+            </p:submenu>  
+        </p:submenu>
+        <p:submenu label="Ayuda" icon="ui-icon-document">  
+            <p:submenu label="New" icon="ui-icon-contact">  
+                <p:menuitem value="Project" url="#" />  
+                <p:menuitem value="Other" url="#" />  
+            </p:submenu>  
+            <p:menuitem value="Open" url="#" />  
+            <p:separator />  
+            <p:menuitem value="Quit" url="#" />  
+        </p:submenu>
+    </p:menubar>
+		<p:toolbar  style="height:36px; float:right"  >
 			<p:toolbarGroup align="right">
 				<p:commandLink value="Cerrar Sesion" style="float:right;" actionListener="#{loginBean.logout}"></p:commandLink>
 				<p:spacer width="20"></p:spacer>
 			</p:toolbarGroup>
 			<p:toolbarGroup align="right">
-				<p:outputLabel value="Usuario: #{loginBean.username}  " style="float:left;"></p:outputLabel>
+				<p:outputLabel value="Usuario: trancemeister75 " style="float:left;"></p:outputLabel>
 			</p:toolbarGroup>
 		</p:toolbar>
+		</h:panelGrid>
+		</h:form>
 	</p:layoutUnit>
-	<p:layoutUnit position="west" size="150" header="Menu" resizable="false" closable="false" collapsible="true" effect="slide" collapsed="false">   
-    <p:commandButton id="boton1" value="Boton 1" />
-    <p:commandButton id="boton2" value="Boton 1"/>
-
-    </p:layoutUnit>
      <p:layoutUnit position="center">  
         <h:form> 
          <p:growl id="growl" showDetail="true" life="1000" />  
-            <p:dialog id="dial1"  widgetVar="dlg1" dynamic="true" closable="true"  resizable="false" draggable="true" footer="" header="Dialogo de Ejemplo" showEffect="puff" height="auto" width="auto" position="170,75" minimizable="true" maximizable="true">
+            <p:dialog id="dial1"  widgetVar="dlg1" dynamic="true" closable="true"  resizable="false" draggable="true" footer="" header="Dialogo de Ejemplo" showEffect="puff" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="true">
             	<h:panelGrid columns="4" cellpadding="5">
             		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
             		<p:inputText> </p:inputText>
