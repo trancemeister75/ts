@@ -27,68 +27,39 @@
 		<h:panelGrid columns="3" width="100%">
 		<p:graphicImage library="images" name="Logo-Escuela.JPG" width="100px" height="45px" ></p:graphicImage>
 		<p:menubar style="float:left">  
-        <p:submenu label="Servicios" icon="ui-icon-document">  
-            <p:submenu label="New" icon="ui-icon-contact">  
-                <p:menuitem value="Project" url="#" />  
-                <p:menuitem value="Other" url="#" />  
-            </p:submenu>  
-            <p:menuitem value="Open" url="#" />  
-            <p:separator />  
-            <p:menuitem value="Quit" url="#" />  
-        </p:submenu>  
-        
         <p:submenu label="Ventas" icon="ui-icon-document">  
-            <p:submenu label="New" icon="ui-icon-contact">  
-                <p:menuitem value="Project" url="#" />  
-                <p:menuitem value="Other" url="#" />  
-            </p:submenu>  
-            <p:menuitem value="Open" url="#" />  
-            <p:separator />  
-            <p:menuitem value="Quit" url="#" />  
+                <p:menuitem value="Registro de Venta" url="#" />  
+                <p:menuitem value="Consulta de Venta" url="#" />    
         </p:submenu>  
   
         <p:submenu label="Inventario" icon="ui-icon-pencil">  
-            <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />  
-            <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />  
+            <p:submenu label="Productos" icon="ui-icon-contact">  
+                <p:menuitem value="Alta de Producto" url="#" />  
+                <p:menuitem value="Consulta de Producto" url="#" />  
+            </p:submenu>
+            <p:submenu label="Proveedores" icon="ui-icon-contact">  
+                <p:menuitem value="Alta de Proveedores" url="#" />  
+                <p:menuitem value="Consulta de Proveedores" url="#" />  
+            </p:submenu> 
         </p:submenu> 
          
   
         <p:submenu label="Notas" icon="ui-icon-document">  
-            <p:menuitem value="Contents" url="#" />  
-            <p:submenu label="Search" icon="ui-icon-search">  
-                <p:submenu label="Text">  
-                    <p:menuitem value="Workspace" url="#" />  
-                </p:submenu>  
-                <p:menuitem value="File" url="#" />  
-            </p:submenu>  
+            <p:menuitem value="Captura de Notas" url="#" />  
+            <p:menuitem value="Consulta de Notas" url="#" />    
         </p:submenu>  
   
         <p:submenu label="Clientes" icon="ui-icon-gear">  
-            <p:submenu label="Ajax" icon="ui-icon-refresh">  
-                <p:menuitem value="Save" actionListener="#{menuBean.save}" icon="ui-icon-disk" update="messages"/>  
-                <p:menuitem value="Update" actionListener="#{menuBean.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>  
-            </p:submenu>  
-            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">  
-                <p:menuitem value="Delete" actionListener="#{menuBean.delete}" icon="ui-icon-close" update="messages" ajax="false"/>  
-            </p:submenu>  
+                <p:menuitem value="Alta de Cliente"  icon="ui-icon-disk" />  
+                <p:menuitem value="Consulta de Cliente"  icon="ui-icon-arrowrefresh-1-w" />  
         </p:submenu>  
-        <p:submenu label="Personal" icon="ui-icon-gear">  
-            <p:submenu label="Ajax" icon="ui-icon-refresh">  
-                <p:menuitem value="Save" actionListener="#{menuBean.save}" icon="ui-icon-disk" update="messages"/>  
-                <p:menuitem value="Update" actionListener="#{menuBean.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>  
-            </p:submenu>  
-            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">  
-                <p:menuitem value="Delete" actionListener="#{menuBean.delete}" icon="ui-icon-close" update="messages" ajax="false"/>  
-            </p:submenu>  
+        <p:submenu label="Personal" icon="ui-icon-gear">    
+                <p:menuitem value="Alta de Personal" icon="ui-icon-disk"/>  
+                <p:menuitem value="Consulta de Personal"  icon="ui-icon-arrowrefresh-1-w"/>   
+                <p:menuitem value="Metas por Empleado"  icon="ui-icon-close"/>   
         </p:submenu>
-        <p:submenu label="Ayuda" icon="ui-icon-document">  
-            <p:submenu label="New" icon="ui-icon-contact">  
-                <p:menuitem value="Project" url="#" />  
-                <p:menuitem value="Other" url="#" />  
-            </p:submenu>  
-            <p:menuitem value="Open" url="#" />  
-            <p:separator />  
-            <p:menuitem value="Quit" url="#" />  
+        <p:submenu label="Ayuda" icon="ui-icon-help">  
+                <p:menuitem value="Acerca de..." url="#" />    
         </p:submenu>
     </p:menubar>
 		<p:toolbar  style="height:36px; float:right"  >
