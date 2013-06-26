@@ -45,21 +45,16 @@
                 <p:menuitem value="Alta de Servicios" url="#" onclick="dlg8.show()"/>  
             </p:submenu> 
         </p:submenu> 
-         
-  
         <p:submenu label="Notas" icon="ui-icon-document">  
-            <p:menuitem value="Captura de Notas" url="#" onclick="dlg9.show()"/>  
             <p:menuitem value="Consulta de Notas" url="#" onclick="dlg10.show()"/>    
         </p:submenu>  
-  
         <p:submenu label="Clientes" icon="ui-icon-gear">  
                 <p:menuitem value="Alta de Cliente"  icon="ui-icon-disk" onclick="dlg11.show()"/>  
                 <p:menuitem value="Consulta de Cliente"  icon="ui-icon-arrowrefresh-1-w" onclick="dlg12.show()"/>  
         </p:submenu>  
         <p:submenu label="Personal" icon="ui-icon-gear">    
                 <p:menuitem value="Alta de Personal" icon="ui-icon-disk" onclick="dlg13.show()"/>  
-                <p:menuitem value="Consulta de Personal"  icon="ui-icon-arrowrefresh-1-w" onclick="dlg14.show()"/>   
-                <p:menuitem value="Metas por Empleado"  icon="ui-icon-close" onclick="dlg15.show()"/>   
+                <p:menuitem value="Consulta de Personal"  icon="ui-icon-arrowrefresh-1-w" onclick="dlg14.show()"/>    
         </p:submenu>
         <p:submenu label="Ayuda" icon="ui-icon-help">  
                 <p:menuitem value="Acerca de..." url="#" onclick="dlg2.show()"/>    
@@ -77,7 +72,7 @@
 		</h:panelGrid>
 		</h:form>
 	</p:layoutUnit>
-     <p:layoutUnit position="center">  
+     <p:layoutUnit position="center" >  
         <h:form> 
          <p:growl id="growl" showDetail="true" life="1000" />  
             <p:dialog id="dial1"  widgetVar="dlg1" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Registro de Venta" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
@@ -129,13 +124,6 @@
             	</h:panelGrid>
             	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
             </p:dialog>
-             <p:dialog id="dial9"  widgetVar="dlg9" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Captura de Notas" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
-            	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
-            		<p:inputText> </p:inputText>
-            	</h:panelGrid>
-            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
-            </p:dialog>
              <p:dialog id="dial10"  widgetVar="dlg10" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Consulta de Notas" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
             	<h:panelGrid columns="4" cellpadding="5">
             		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
@@ -143,33 +131,123 @@
             	</h:panelGrid>
             	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
             </p:dialog>
-             <p:dialog id="dial11"  widgetVar="dlg11" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Alta de Cliente" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+             <p:dialog id="dial11"  widgetVar="dlg11" closable="true" draggable="true" resizable="false" header="Alta de Cliente" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+            	<h4>Introduce la informacion requerida:</h4>
             	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
+            		<p:outputLabel value="Nombre: "></p:outputLabel>
             		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Apellido Paterno: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Apellido Materno: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Dirección: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Telefono: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="E-Mail: "></p:outputLabel>
+            		<p:inputText></p:inputText>
             	</h:panelGrid>
             	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
+            	<p:separator style="float:right;"></p:separator>
+            	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
             </p:dialog>
-             <p:dialog id="dial12"  widgetVar="dlg12" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Consulta de Cliente" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+             <p:dialog id="dial12"  widgetVar="dlg12" dynamic="false" closable="true"  resizable="true" draggable="true" header="Consulta de Cliente" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+            	<h4>Puedes buscar un cliente por nombre o apellido paterno:</h4>
             	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
+            		<p:outputLabel value="Nombre: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Apellido Paterno: "></p:outputLabel>
             		<p:inputText> </p:inputText>
             	</h:panelGrid>
-            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
+            	<p:commandButton value="Consultar" style="float:right;"></p:commandButton>
+            	<p:separator style="float:right;"></p:separator>
+            	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
+            	<h4>Resultados:</h4>
+            	<p:dataTable>
+            		<p:column>
+            			<f:facet  name="header">Nombre</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Apellido Paterno</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Apellido Materno</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Direccion</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Telefono</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">E-Mail</f:facet>
+            		</p:column>
+            	</p:dataTable>
             </p:dialog>
-             <p:dialog id="dial13"  widgetVar="dlg13" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Alta de Personal" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+             <p:dialog id="dial13"  widgetVar="dlg13" dynamic="false" closable="true"  resizable="false" draggable="true" header="Alta de Personal" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+            	<h4>Selecciona el tipo de personal: </h4>
+            	<p:selectOneRadio layout="pageDirection">	
+            		<f:selectItem itemLabel="Usuario/Administrador:" itemValue="A"/>
+            		<f:selectItem itemLabel="Empleado:" itemValue="E"/>
+            	</p:selectOneRadio>
+            	<h4>Introduce los datos requeridos:</h4>
             	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
-            		<p:inputText> </p:inputText>
-            	</h:panelGrid>
+    				<p:outputLabel value="Usuario: "  for="idUsuario" />
+    				<p:inputText value="#{registrarUsuarioBean.idUsuario}" id="idUsuario" label="idUsuario"/>
+    				<p:outputLabel value="Contraseña: "  for="passwordR" />
+    				<p:inputText value="#{registrarUsuarioBean.password}" id="passwordR" label="passwordR"/>
+    				<p:outputLabel value="Nombre: "  for="nombre" />
+    				<p:inputText value="#{registrarUsuarioBean.nombre}" id="nombre" label="nombre"/>
+    				<p:outputLabel value="Apellido Paterno: "  for="apPaterno" />
+    				<p:inputText value="#{registrarUsuarioBean.apPaterno}" id="apPaterno" label="apPaterno"/>
+    				<p:outputLabel value="Apellido Materno: "  for="apMaterno" />
+    				<p:inputText value="#{registrarUsuarioBean.apMaterno}" id="apMaterno" label="apMaterno"/>
+    				<p:outputLabel value="Direccion: "  for="direccion" />
+    				<p:inputText value="#{registrarUsuarioBean.direccion}" id="direccion" label="direccion"/>
+    				<p:outputLabel value="Telefono: "  for="telefono" />
+    				<p:inputText value="#{registrarUsuarioBean.telefono}" id="telefono" label="telefono"/>
+    				<p:outputLabel value="E-Mail: "  for="EMail" />
+    				<p:inputText value="#{registrarUsuarioBean.EMail}" id="EMail" label="EMail"/>
+    			</h:panelGrid>
             	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
+            	<p:separator style="float:right;"></p:separator>
+            	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
             </p:dialog>
              <p:dialog id="dial14"  widgetVar="dlg14" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Consulta de Personal" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+            	<h4>Introduce el dato de busqueda:</h4>
             	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
+            		<p:outputLabel value="Usuario: "></p:outputLabel>
             		<p:inputText> </p:inputText>
             	</h:panelGrid>
-            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
+            	<p:commandButton value="Consultar" style="float:right;"></p:commandButton>
+            	<p:separator style="float:right;"></p:separator>
+            	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
+            	<h4>Resultados:</h4>
+            	<p:dataTable>
+            		<p:column>
+            			<f:facet  name="header">Nombre</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Apellido Paterno</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Apellido Materno</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Direccion</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Telefono</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">E-Mail</f:facet>
+            		</p:column>
+            	</p:dataTable>
+            	
+				<div align="center">
+					<p:commandButton value=" Consulta de Metas" onclick="dlg15.show();"/>
+				</div>
+			
             </p:dialog>
              <p:dialog id="dial15"  widgetVar="dlg15" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Metas por Empleado" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
             	<h:panelGrid columns="4" cellpadding="5">
@@ -178,9 +256,11 @@
             	</h:panelGrid>
             	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
             </p:dialog>
-            <p:dialog widgetVar="dlg2" closable="true" showEffect="fade" hideEffect="fade" draggable="false"  resizable="false" showHeader="false" closeOnEscape="true" width="340px" height="250px">
+            <p:dialog widgetVar="dlg2" closable="true" showEffect="fade" hideEffect="fade" draggable="false"  resizable="false" showHeader="false" closeOnEscape="true" width="340px" height="260px">
             	<p:graphicImage name="Logo-Escuela.JPG" library="images" width="300px" height="150px"></p:graphicImage>
             	<div align="center">
+            		<p:outputLabel value="Sistema de Administracion de Estetica."></p:outputLabel>
+            		<hr />
             		<p:outputLabel value="Copyright 2013. Todos los derechos Reservados"></p:outputLabel>
             	</div>
             </p:dialog>
