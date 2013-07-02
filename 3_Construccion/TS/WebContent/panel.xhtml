@@ -28,8 +28,7 @@
 		<p:graphicImage library="images" name="Logo-Escuela.JPG" width="100px" height="45px" ></p:graphicImage>
 		<p:menubar style="float:left">  
         <p:submenu label="Ventas" icon="ui-icon-document">  
-                <p:menuitem value="Registro de Venta" url="#" onclick="dlg1.show()"/>  
-                <p:menuitem value="Consulta de Venta" url="#" onclick="dlg3.show()"/>    
+                <p:menuitem value="Registro de Venta" url="#" onclick="dlg1.show()"/>     
         </p:submenu>  
   
         <p:submenu label="Inventario" icon="ui-icon-pencil">  
@@ -75,12 +74,38 @@
      <p:layoutUnit position="center" >  
         <h:form> 
          <p:growl id="growl" showDetail="true" life="1000" />  
-            <p:dialog id="dial1"  widgetVar="dlg1" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Registro de Venta" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+            <p:dialog id="dial1"  widgetVar="dlg1" dynamic="false" closable="true"  resizable="true" draggable="true" header="Registro de Venta" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+            	<h4>Introduzca los datos de la venta:</h4>
             	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
+            		<p:outputLabel value="Número de Folio: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Fecha de Emision: "></p:outputLabel>
             		<p:inputText> </p:inputText>
             	</h:panelGrid>
-            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
+            	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
+            	<h4>Datos:</h4>
+            		<h4></h4>
+            	<p:dataTable>
+            		<p:column>
+            			<f:facet  name="header">Numero de Transaccion</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Tipo de Transaccion</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Cantidad</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Precio Unitario</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Status</f:facet>
+            		</p:column>
+            	</p:dataTable>
+            	<h4></h4>
+            	<p:outputLabel value="TOTAL: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            	<p:commandButton value="Imprimir" style="float:right;"></p:commandButton>
             </p:dialog>
              <p:dialog id="dial3"  widgetVar="dlg3" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Consulta de Venta" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
             	<h:panelGrid columns="4" cellpadding="5">
@@ -89,47 +114,166 @@
             	</h:panelGrid>
             	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
             </p:dialog>
-             <p:dialog id="dial4"  widgetVar="dlg4" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Alta de Producto" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+             <p:dialog id="dial4"  widgetVar="dlg4" dynamic="false" closable="true"  resizable="false" draggable="true" header="Alta de Producto" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
             	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
+            		<p:outputLabel value="Codigo del Producto: "></p:outputLabel>
             		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Nombre: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Descripcion: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Marca: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Area Responsable: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Stock: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Categoria: "></p:outputLabel>
+            		<p:selectOneMenu></p:selectOneMenu>
+            		<p:outputLabel value="Proveedor: "></p:outputLabel>
+            		<p:selectOneMenu></p:selectOneMenu>
             	</h:panelGrid>
             	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
             </p:dialog>
-             <p:dialog id="dial5"  widgetVar="dlg5" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Consulta de Producto" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+             <p:dialog id="dial5"  widgetVar="dlg5" dynamic="false" closable="true"  resizable="true" draggable="true" header="Consulta de Producto" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+            	<h4>Puedes buscar un proveedor por Codigo, Nombre o Marca:</h4>
             	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
+            		<p:outputLabel value="Codigo del Producto: "></p:outputLabel>
             		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Nombre: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Marca: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            	</h:panelGrid>
+            	<p:commandButton value="Consultar" style="float:right;"></p:commandButton>
+            	<p:separator style="float:right;"></p:separator>
+            	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
+            	<h4>Resultado:</h4>
+            		<h4></h4>
+            	<p:dataTable>
+            		<p:column>
+            			<f:facet  name="header">Codigo del Producto</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Nombre</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Descripcion</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Marca</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Area Responsable</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Stock</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Categoria</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Proveedor</f:facet>
+            		</p:column>
+            	</p:dataTable>
+            	<h4></h4>
+            </p:dialog>
+             <p:dialog id="dial6"  widgetVar="dlg6" dynamic="false" closable="true"  resizable="true" draggable="true" header="Alta de Proveedores" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+            	<h4>Introduce la informacion requerida:</h4>
+            	<h:panelGrid columns="4" cellpadding="5">
+            		<p:outputLabel value="Nombre: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="RFC: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Domicilio Fiscal: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Telefono: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Tipo de Proveedor: "></p:outputLabel>
+            		<p:selectOneMenu></p:selectOneMenu>
+            	</h:panelGrid>
+            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
+            	<p:separator style="float:right;"></p:separator>
+            	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
+            </p:dialog>
+             <p:dialog id="dial7"  widgetVar="dlg7" dynamic="false" closable="true"  resizable="true" draggable="true" header="Consulta de Proveedores" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+            	<h4>Puedes buscar un proveedor por RFC:</h4>
+            	<h:panelGrid columns="4" cellpadding="5">
+            		<p:outputLabel value="RFC: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            	</h:panelGrid>
+            	<p:commandButton value="Consultar" style="float:right;"></p:commandButton>
+            	<p:separator style="float:right;"></p:separator>
+            	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
+            	<h4>Resultado:</h4>
+            		<h4></h4>
+            	<p:dataTable>
+            		<p:column>
+            			<f:facet  name="header">Nombre</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">RFC</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Domicilio Fiscal</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Telefono</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Tipo de Proveedor</f:facet>
+            		</p:column>
+            	</p:dataTable>
+            	<h4></h4>
+            </p:dialog>
+             <p:dialog id="dial8"  widgetVar="dlg8" dynamic="false" closable="true"  resizable="false" draggable="true" header="Alta de Servicios" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+            	<h4>Introduce los datos requeridos:</h4>
+            	<h:panelGrid columns="1" cellpadding="5">
+            		<p:outputLabel value="Concepto: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Descripcion: "></p:outputLabel>
+            		<p:inputText> </p:inputText>
+            		<p:outputLabel value="Facturable: "></p:outputLabel>
+            		<p:selectBooleanCheckbox></p:selectBooleanCheckbox>
             	</h:panelGrid>
             	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
             </p:dialog>
-             <p:dialog id="dial6"  widgetVar="dlg6" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Alta de Proveedores" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+             <p:dialog id="dial10"  widgetVar="dlg10" dynamic="false" closable="true"  resizable="true" draggable="true" header="Consulta de Notas" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+            	<h4>Puedes buscar una nota por número de folio:</h4>
             	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
+            		<p:outputLabel value="Número de Folio: "></p:outputLabel>
             		<p:inputText> </p:inputText>
             	</h:panelGrid>
-            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
-            </p:dialog>
-             <p:dialog id="dial7"  widgetVar="dlg7" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Consulta de Proveedores" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
-            	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
+            	<p:commandButton value="Consultar" style="float:right;"></p:commandButton>
+            	<p:separator style="float:right;"></p:separator>
+            	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
+            	<h4>Resultado:</h4>
+            		<h:panelGrid columns="1">
+            		<p:outputLabel value="Fecha de Emision: "></p:outputLabel>
+            		<p:inputText> </p:inputText>           		
+            		<p:outputLabel value="Monto Total: "></p:outputLabel>
             		<p:inputText> </p:inputText>
-            	</h:panelGrid>
-            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
-            </p:dialog>
-             <p:dialog id="dial8"  widgetVar="dlg8" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Alta de Servicios" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
-            	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
-            		<p:inputText> </p:inputText>
-            	</h:panelGrid>
-            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
-            </p:dialog>
-             <p:dialog id="dial10"  widgetVar="dlg10" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Consulta de Notas" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
-            	<h:panelGrid columns="4" cellpadding="5">
-            		<p:outputLabel value="Identificador del Libro: "></p:outputLabel>
-            		<p:inputText> </p:inputText>
-            	</h:panelGrid>
-            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
+            		</h:panelGrid>
+            		<h4></h4>
+            	<p:dataTable>
+            		<p:column>
+            			<f:facet  name="header">Numero de Transaccion</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Tipo de Transaccion</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Cantidad</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Precio Unitario</f:facet>
+            		</p:column>
+            		<p:column>
+            			<f:facet  name="header">Status</f:facet>
+            		</p:column>
+            	</p:dataTable>
+            	<h4></h4>
+            	<p:commandButton value="Imprimir" style="float:right;"></p:commandButton>
             </p:dialog>
              <p:dialog id="dial11"  widgetVar="dlg11" closable="true" draggable="true" resizable="false" header="Alta de Cliente" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
             	<h4>Introduce la informacion requerida:</h4>
@@ -213,7 +357,7 @@
             	<p:separator style="float:right;"></p:separator>
             	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
             </p:dialog>
-             <p:dialog id="dial14"  widgetVar="dlg14" dynamic="false" closable="true"  resizable="true" draggable="true" footer="" header="Consulta de Personal" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
+             <p:dialog id="dial14"  widgetVar="dlg14" dynamic="false" closable="true"  resizable="true" draggable="true" header="Consulta de Personal" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
             	<h4>Introduce el dato de busqueda:</h4>
             	<h:panelGrid columns="4" cellpadding="5">
             		<p:outputLabel value="Usuario: "></p:outputLabel>

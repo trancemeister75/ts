@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/07/2013 11:59:54 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.main.target.Proveedor" table="proveedor" schema="public">
+        <id name="rfc" type="string">
+            <column name="rfc" length="12" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="40" not-null="true" unique="true" />
+        </property>
+        <property name="domicilioFiscal" type="string">
+            <column name="`Domicilio Fiscal`" />
+        </property>
+        <property name="telefono" type="java.lang.Integer">
+            <column name="telefono" />
+        </property>
+        <set name="catalogoProveedors" table="catalogo_proveedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_proveedor" length="12" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.main.target.CatalogoProveedor" />
+        </set>
+        <set name="catalogoProductos" table="catalogo_producto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_proveedor" length="12" not-null="true" />
+            </key>
+            <one-to-many class="com.main.target.CatalogoProducto" />
+        </set>
+    </class>
+</hibernate-mapping>

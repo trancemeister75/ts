@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/07/2013 11:59:54 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.main.target.Nota" table="nota" schema="public">
+        <id name="idNota" type="int">
+            <column name="id_nota" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="com.main.target.Cliente" fetch="select">
+            <column name="clienteid_cliente" not-null="true" />
+        </many-to-one>
+        <property name="fechaEmision" type="date">
+            <column name="fecha_emision" length="13" not-null="true" />
+        </property>
+        <property name="importeTotal" type="double">
+            <column name="importe_total" precision="17" scale="17" not-null="true" />
+        </property>
+        <property name="tipoNota" type="string">
+            <column name="tipo_nota" length="10" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="10" not-null="true" />
+        </property>
+        <set name="TNotas" table="t_nota" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="notaid_nota" not-null="true" />
+            </key>
+            <one-to-many class="com.main.target.TNota" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/07/2013 11:59:54 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.main.target.Personal" table="personal" schema="public">
+        <id name="idusuario" type="string">
+            <column name="idusuario" length="50" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="25" not-null="true" />
+        </property>
+        <property name="apellidoPaterno" type="string">
+            <column name="apellido_paterno" length="25" not-null="true" />
+        </property>
+        <property name="apellidoMaterno" type="string">
+            <column name="apellido_materno" length="25" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="25" not-null="true" />
+        </property>
+        <property name="EMail" type="string">
+            <column name="`E-Mail`" length="25" not-null="true" />
+        </property>
+        <property name="tipoPersonal" type="string">
+            <column name="tipo_personal" length="5" not-null="true" />
+        </property>
+        <set name="metas" table="meta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idusuario" length="50" not-null="true" />
+            </key>
+            <one-to-many class="com.main.target.Meta" />
+        </set>
+        <one-to-one name="usuario" class="com.main.target.Usuario"></one-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/07/2013 11:59:54 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.main.target.TNota" table="t_nota" schema="public">
+        <id name="idTran" type="int">
+            <column name="id_tran" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="producto" class="com.main.target.Producto" fetch="select">
+            <column name="productoid_producto" length="25" />
+        </many-to-one>
+        <many-to-one name="nota" class="com.main.target.Nota" fetch="select">
+            <column name="notaid_nota" not-null="true" />
+        </many-to-one>
+        <many-to-one name="servicio" class="com.main.target.Servicio" fetch="select">
+            <column name="char_val_s" length="25" not-null="true" />
+        </many-to-one>
+        <property name="tipoT" type="string">
+            <column name="tipo_t" length="10" not-null="true" />
+        </property>
+        <property name="TChar" type="string">
+            <column name="t_char" length="30" not-null="true" />
+        </property>
+        <property name="precioT" type="double">
+            <column name="precio_t" precision="17" scale="17" not-null="true" />
+        </property>
+        <property name="cantidad" type="java.lang.Integer">
+            <column name="cantidad" />
+        </property>
+    </class>
+</hibernate-mapping>

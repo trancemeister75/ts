@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/07/2013 11:59:54 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.main.target.CatalogoProveedor" table="catalogo_proveedor" schema="public">
+        <composite-id name="id" class="com.main.target.CatalogoProveedorId">
+            <key-property name="idProveedor" type="string">
+                <column name="id_proveedor" length="12" />
+            </key-property>
+            <key-property name="tipoProveedor" type="int">
+                <column name="tipo_proveedor" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="proveedor" class="com.main.target.Proveedor" update="false" insert="false" fetch="select">
+            <column name="id_proveedor" length="12" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="descripcion" />
+        </property>
+    </class>
+</hibernate-mapping>
