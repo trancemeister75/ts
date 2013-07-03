@@ -299,32 +299,38 @@
             	<h4>Puedes buscar un cliente por nombre o apellido paterno:</h4>
             	<h:panelGrid columns="4" cellpadding="5">
             		<p:outputLabel value="Nombre: "></p:outputLabel>
-            		<p:inputText> </p:inputText>
+            		<p:inputText value="#{consultarClienteBean.nombre}" binding="#{consultarClienteBean.itNombre}" id="ccNombre"></p:inputText>
             		<p:outputLabel value="Apellido Paterno: "></p:outputLabel>
-            		<p:inputText> </p:inputText>
+            		<p:inputText value="#{consultarClienteBean.apPaterno}" binding="#{consultarClienteBean.itApPaterno}" id="ccApPaterno"></p:inputText>
             	</h:panelGrid>
-            	<p:commandButton value="Consultar" style="float:right;"></p:commandButton>
+            	<p:commandButton value="Consultar" style="float:right;" actionListener="#{consultarClienteBean.consulta}" update="growl tablaClientes"></p:commandButton>
             	<p:separator style="float:right;"></p:separator>
-            	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
+            	<p:commandButton value="Limpiar" style="float:right;" action="#{consultarClienteBean.limpia}" update="ccNombre ccApPaterno tablaClientes"></p:commandButton>
             	<h4>Resultados:</h4>
-            	<p:dataTable>
+            	<p:dataTable id="tablaClientes" var="c" value="#{consultarClienteBean.clientes}" rowKey="#{c.idCliente}">
             		<p:column>
             			<f:facet  name="header">Nombre</f:facet>
+            			<p:outputLabel value="#{c.nombre}"></p:outputLabel>
             		</p:column>
             		<p:column>
             			<f:facet  name="header">Apellido Paterno</f:facet>
+            			<p:outputLabel value="#{c.apellidoPaterno}"></p:outputLabel>
             		</p:column>
             		<p:column>
             			<f:facet  name="header">Apellido Materno</f:facet>
+            			<p:outputLabel value="#{c.apellidoMaterno}"></p:outputLabel>
             		</p:column>
             		<p:column>
             			<f:facet  name="header">Direccion</f:facet>
+            			<p:outputLabel value="#{c.direccion}"></p:outputLabel>
             		</p:column>
             		<p:column>
             			<f:facet  name="header">Telefono</f:facet>
+            			<p:outputLabel value="#{c.telefono}"></p:outputLabel>
             		</p:column>
             		<p:column>
             			<f:facet  name="header">E-Mail</f:facet>
+            			<p:outputLabel value="#{c.email}"></p:outputLabel>
             		</p:column>
             	</p:dataTable>
             </p:dialog>
