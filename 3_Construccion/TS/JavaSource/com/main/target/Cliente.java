@@ -1,6 +1,6 @@
 package com.main.target;
 
-// Generated 1/07/2013 11:59:54 PM by Hibernate Tools 3.4.0.CR1
+// Generated 2/07/2013 10:20:52 PM by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public class Cliente implements java.io.Serializable {
 
-	private int idCliente;
+	private String idCliente;
 	private String nombre;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
@@ -22,7 +22,7 @@ public class Cliente implements java.io.Serializable {
 	public Cliente() {
 	}
 
-	public Cliente(int idCliente, String nombre, String apellidoPaterno,
+	public Cliente(String idCliente, String nombre, String apellidoPaterno,
 			String apellidoMaterno, String direccion, String telefono,
 			String email) {
 		this.idCliente = idCliente;
@@ -34,7 +34,7 @@ public class Cliente implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public Cliente(int idCliente, String nombre, String apellidoPaterno,
+	public Cliente(String idCliente, String nombre, String apellidoPaterno,
 			String apellidoMaterno, String direccion, String telefono,
 			String email, Set notas) {
 		this.idCliente = idCliente;
@@ -47,11 +47,11 @@ public class Cliente implements java.io.Serializable {
 		this.notas = notas;
 	}
 
-	public int getIdCliente() {
+	public String getIdCliente() {
 		return this.idCliente;
 	}
 
-	public void setIdCliente(int idCliente) {
+	public void setIdCliente(String idCliente) {
 		this.idCliente = idCliente;
 	}
 

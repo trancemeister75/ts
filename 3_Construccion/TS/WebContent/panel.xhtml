@@ -65,7 +65,7 @@
 				<p:spacer width="20"></p:spacer>
 			</p:toolbarGroup>
 			<p:toolbarGroup align="right">
-				<p:outputLabel value="Usuario: trancemeister75 " style="float:left;"></p:outputLabel>
+				<p:outputLabel value="Usuario: #{loginBean.username} " style="float:left;"></p:outputLabel>
 			</p:toolbarGroup>
 		</p:toolbar>
 		</h:panelGrid>
@@ -279,21 +279,21 @@
             	<h4>Introduce la informacion requerida:</h4>
             	<h:panelGrid columns="4" cellpadding="5">
             		<p:outputLabel value="Nombre: "></p:outputLabel>
-            		<p:inputText> </p:inputText>
+            		<p:inputText value="#{registrarClienteBean.nombre}" binding="#{registrarClienteBean.itNombre}" id="acNombre"> </p:inputText>
             		<p:outputLabel value="Apellido Paterno: "></p:outputLabel>
-            		<p:inputText> </p:inputText>
+            		<p:inputText value="#{registrarClienteBean.apPaterno}" binding="#{registrarClienteBean.itApPaterno}" id="acApPaterno"> </p:inputText>
             		<p:outputLabel value="Apellido Materno: "></p:outputLabel>
-            		<p:inputText> </p:inputText>
+            		<p:inputText value="#{registrarClienteBean.apMaterno}" binding="#{registrarClienteBean.itApMaterno}" id="acApMaterno"> </p:inputText>
             		<p:outputLabel value="Dirección: "></p:outputLabel>
-            		<p:inputText> </p:inputText>
+            		<p:inputText value="#{registrarClienteBean.direccion}" binding="#{registrarClienteBean.itDireccion}" id="acDireccion"> </p:inputText>
             		<p:outputLabel value="Telefono: "></p:outputLabel>
-            		<p:inputText> </p:inputText>
+            		<p:inputText value="#{registrarClienteBean.telefono}" binding="#{registrarClienteBean.itTelefono}" id="acTelefono"> </p:inputText>
             		<p:outputLabel value="E-Mail: "></p:outputLabel>
-            		<p:inputText></p:inputText>
+            		<p:inputText value="#{registrarClienteBean.email}" binding="#{registrarClienteBean.itEmail}" id="acEmail"></p:inputText>
             	</h:panelGrid>
-            	<p:commandButton value="Registrar" style="float:right;"></p:commandButton>
+            	<p:commandButton value="Registrar" actionListener="#{registrarClienteBean.registra}" style="float:right;" update="growl acNombre acApPaterno acApMaterno acDireccion acTelefono acEmail"></p:commandButton>
             	<p:separator style="float:right;"></p:separator>
-            	<p:commandButton value="Limpiar" style="float:right;"></p:commandButton>
+            	<p:commandButton value="Limpiar" actionListener="#{registrarClienteBean.limpia}" style="float:right;" update="acNombre acApPaterno acApMaterno acDireccion acTelefono acEmail"></p:commandButton>
             </p:dialog>
              <p:dialog id="dial12"  widgetVar="dlg12" dynamic="false" closable="true"  resizable="true" draggable="true" header="Consulta de Cliente" showEffect="fade" hideEffect="slide" height="auto" width="auto" position="170,75" minimizable="true" maximizable="false">
             	<h4>Puedes buscar un cliente por nombre o apellido paterno:</h4>

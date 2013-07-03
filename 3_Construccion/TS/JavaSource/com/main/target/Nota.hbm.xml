@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 1/07/2013 11:59:54 PM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2/07/2013 10:20:52 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.main.target.Nota" table="nota" schema="public">
         <id name="idNota" type="int">
@@ -9,7 +9,7 @@
             <generator class="assigned" />
         </id>
         <many-to-one name="cliente" class="com.main.target.Cliente" fetch="select">
-            <column name="clienteid_cliente" not-null="true" />
+            <column name="clienteid_cliente" length="25" not-null="true" />
         </many-to-one>
         <property name="fechaEmision" type="date">
             <column name="fecha_emision" length="13" not-null="true" />
